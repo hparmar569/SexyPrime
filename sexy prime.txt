@@ -1,0 +1,37 @@
+import java.util.*;
+public class SexyPrime
+{
+    
+        public void sexyPrime(int l,int r)
+     {
+        boolean prime[]=new boolean[r+1];
+        Arrays.fill(prime,true);
+        for(int i=2;i*i<=r;i++)
+        {
+            if(prime[i]==true)
+            {
+                for(int j=i*2;j<=r;j+=i)
+                {
+                    prime[j]=false;
+                }
+            }
+        }
+        for(int i=l;i<=r-6;i++)
+        {
+            if(prime[i] && prime[i+6])
+            {
+                System.out.println((i) + "   " + (i+6));
+            }
+        }
+     }
+     
+
+    public static void main(String[]args)
+    {
+        Scanner c=new Scanner(System.in);
+        int l=c.nextInt();
+        int r=c.nextInt();
+        SexyPrime obj=new SexyPrime();
+        obj.sexyPrime(l,r);
+    }    
+}
